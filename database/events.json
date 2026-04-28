@@ -1,0 +1,82 @@
+[
+  {
+    "id": 0,
+    "image_link": "../../database/cdn/0_0.webp",
+    "title": "Gala d'Ouverture de la Saison",
+    "date": "2026-05-15T20:00:00",
+    "location": "Grand Opéra de VillaNova",
+    "description": "Une soirée prestigieuse pour lancer la saison culturelle. Le Grand Opéra accueille des ténors de renommée mondiale pour une performance acoustique unique, suivie d'un cocktail dînatoire dans le foyer historique. Tenue de soirée exigée."
+  },
+  {
+    "id": 1,
+    "image_link": "../../database/cdn/1_0.webp",
+    "title": "Vernissage : Abstractions Urbaines",
+    "date": "2026-06-10T18:30:00",
+    "location": "Galerie d'Art Contemporain du Belvédère, VillaNova",
+    "description": "Plongez dans l'univers de l'art moderne avec l'exposition 'Abstractions Urbaines'. Le vernissage présente des installations immersives et des toiles monumentales explorant l'évolution des structures citadines. Rencontre exclusive avec les artistes locaux."
+  },
+  {
+    "id": 2,
+    "image_link": "../../database/cdn/2_0.webp",
+    "title": "Marathon Nocturne des Lumières",
+    "date": "2026-04-20T21:00:00",
+    "location": "Départ : Esplanade du Port, VillaNova",
+    "description": "Une course de 42 km illuminée par des milliers de LEDs à travers les rues emblématiques de VillaNova. Les participants traverseront le quartier des affaires et le vieux centre sous une ambiance électrique avec des points de ravitaillement musicaux."
+  },
+  {
+    "id": 3,
+    "image_link": "../../database/cdn/3_0.webp",
+    "title": "Grande Braderie du Design",
+    "date": "2026-09-05T09:00:00",
+    "location": "Halle Technologique de VillaNova",
+    "description": "L'événement incontournable pour les amateurs de mobilier et d'objets connectés. Plus de 200 exposants proposent des pièces uniques, des prototypes et des créations artisanales dans le cadre industriel réhabilité de la Halle Technologique."
+  },
+  {
+    "id": 4,
+    "image_link": "../../database/cdn/4_0.webp",
+    "title": "Récital de Piano aux Chandelles",
+    "date": "2026-12-20T19:00:00",
+    "location": "Cathédrale Sainte-Marie de VillaNova",
+    "description": "Vivez la magie des fêtes avec un récital de piano exceptionnel au sein de la cathédrale. L'édifice sera uniquement éclairé à la bougie pour une immersion totale dans les chefs-d'œuvre de Chopin et Debussy, offrant une acoustique sacrée."
+  },
+  {
+    "id": 5,
+    "image_link": "../../database/cdn/5_0.webp",
+    "title": "Sommet International de l'Innovation",
+    "date": "2026-07-12T08:30:00",
+    "location": "Centre de Congrès Horizon, VillaNova",
+    "description": "Un carrefour d'échanges technologiques regroupant les leaders de la Silicon Valley locale. Au programme : conférences sur l'IA éthique, ateliers de programmation quantique et démonstrations de prototypes de mobilité urbaine aérienne."
+  },
+  {
+    "id": 6,
+    "image_link": "../../database/cdn/6_0.webp",
+    "title": "Banquet des Saveurs Méditerranéennes",
+    "date": "2026-10-18T12:30:00",
+    "location": "Place du Marché Central, VillaNova",
+    "description": "Une célébration de la gastronomie locale où les chefs étoilés de VillaNova cuisinent en plein air. Une table longue de 200 mètres accueillera les convives pour un menu dégustation mettant à l'honneur les produits de saison et les vignobles régionaux."
+  },
+  {
+    "id": 7,
+    "image_link": "../../database/cdn/7_0.webp",
+    "title": "Carnaval de Rue Interactif",
+    "date": "2026-08-25T15:00:00",
+    "location": "Quartier des Artistes, VillaNova",
+    "description": "Un défilé haut en couleur où le public est invité à participer grâce à des costumes interactifs. Spectacles de marionnettes géantes, troupes de danseurs contemporains et fanfares électroniques animeront les rues jusqu'au coucher du soleil."
+  },
+  {
+    "id": 8,
+    "image_link": "../../database/cdn/8_0.webp",
+    "title": "Nuit des Perséides au Sommet",
+    "date": "2026-08-14T23:00:00",
+    "location": "Observatoire du Pic des Muses, VillaNova",
+    "description": "Une séance d'observation astronomique guidée pour admirer la pluie de météores. Des télescopes de haute puissance seront mis à disposition sur les hauteurs de VillaNova, accompagnés d'explications sur les constellations et les phénomènes célestes."
+  },
+  {
+    "id": 9,
+    "image_link": "../../database/cdn/9_0.webp",
+    "title": "Foire aux Livres et Manuscrits Anciens",
+    "date": "2026-03-22T10:00:00",
+    "location": "Bibliothèque Municipale Albertine, VillaNova",
+    "description": "Une journée dédiée aux bibliophiles avec des ventes aux enchères de manuscrits rares et des ateliers de reliure traditionnelle. Les curateurs de la bibliothèque exposeront également des archives inédites de la fondation de la ville de VillaNova."
+  }
+]

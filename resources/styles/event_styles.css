@@ -1,0 +1,61 @@
+/* Hero section */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-section h1 {
+    color: white;
+    font-size: 2.2rem;
+    margin-top: 40px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.hero-section .event-date {
+    color: white;
+}
+
+/* Event details */
+.info_title h2 {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+}
+
+.info-container {
+    margin: 0 6%;
+    padding-top: 7px;
+}
+
+@media (min-width: 1024px) {
+    .info-container {
+        margin: 0 15%;
+        padding-top: 7px;
+    }
+}
+
+.info-container .location {
+    text-align: center;
+}
+
+.info-container .description {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
