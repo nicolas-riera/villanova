@@ -10,11 +10,13 @@
 @font-face {
     font-family: "Montserrat";
     src: url("../font/Montserrat.ttf") format('truetype');
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Inter";
     src: url("../font/Inter.ttf") format('truetype');
+    font-display: swap;
 }
 
 html,
