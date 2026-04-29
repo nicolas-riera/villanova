@@ -1,0 +1,86 @@
+/* Init */
+:root {
+  --primary-color: #003366;
+  --secondary-color: #007BFF;
+  --neutral-background: #FFFFFF;
+  --neutral-constrast: #F4F7F9;
+  --accent-color: #3198ff;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/Montserrat.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../font/Inter.ttf") format("truetype");
+  font-display: swap;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+}
+
+/* Header */
+header,
+h1,
+h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  background-color: var(--primary-color);
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+header img {
+  height: 50px;
+}
+
+main {
+  flex: 1;
+}
+
+/* Footer  */
+footer {
+  background-color: var(--primary-color);
+  display: flex;
+  padding: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Auto Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #003366;
+    --secondary-color: #002b59;
+    --neutral-background: #121212;
+    --neutral-constrast: #1b1b1b;
+    --accent-color: #123e69;
+  }
+  body {
+    background-color: var(--neutral-background);
+    color: white;
+  }
+}/*# sourceMappingURL=styles.css.map */

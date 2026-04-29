@@ -1,0 +1,31 @@
+.event-card {
+    background: white;
+    border: 2px solid #000;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &.event-past {
+        opacity: 0.7;
+
+        & .event-image {
+            filter: grayscale(100%);
+        }
+
+        & .info-button {
+            background-color: #777;
+        }
+
+        & .info-button:hover {
+            background-color: #999999;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .event-card {
+        background: var(--neutral-background);
+        border: 2px solid #ffffff;
+    }
+}

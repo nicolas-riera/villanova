@@ -49,10 +49,10 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-}
 
-header img {
-    height: 50px;
+    & img {
+        height: 50px;
+    }
 }
 
 main {
@@ -67,11 +67,11 @@ footer {
     justify-content: center;
     align-items: center;
     color: white;
-}
 
-footer a {
-    text-decoration: none;
-    color: white;
+    & a {
+        text-decoration: none;
+        color: white;
+    }
 }
 
 /* Auto Dark Theme */

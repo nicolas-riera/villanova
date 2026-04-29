@@ -76,31 +76,6 @@
     }
 }
 
-.event-card {
-    background: white;
-    border: 2px solid #000;
-    border-radius: 15px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.event-card.event-past {
-    opacity: 0.7;
-}
-
-.event-card.event-past .event-image {
-    filter: grayscale(100%);
-}
-
-.event-card.event-past .info-button {
-    background-color: #777;
-}
-
-.event-card.event-past .info-button:hover {
-    background-color: #999999;
-}
-
 .event-image-container {
     width: 100%;
     height: 200px;
@@ -167,12 +142,7 @@
     .search-icon {
         filter: invert(100%);
     }
-
-    .event-card {
-        background: var(--neutral-background);
-        border: 2px solid #ffffff;
-    }
-
+    
     .event-date {
         color: #AAAAAA;
     }
