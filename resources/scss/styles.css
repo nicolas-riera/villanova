@@ -21,6 +21,7 @@
 :root {
   --event-date-color: #555;
   --event-location-color: #666;
+  --border-color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +33,7 @@
     --accent-color: #123e69;
     --event-date-color: #AAAAAA;
     --event-location-color: #999999;
+    --border-color: #363636;
   }
   body {
     background-color: var(--neutral-background);
@@ -114,6 +116,7 @@ main {
   flex: 1;
 }
 
+/* Footer */
 footer {
   background-color: var(--primary-color);
   display: flex;

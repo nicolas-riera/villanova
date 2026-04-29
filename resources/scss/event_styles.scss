@@ -2,50 +2,28 @@
 
 @use 'animations';
 @use 'dark_theme';
+@use 'hero_section';
 
 /* Hero section */
 .hero-section {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
+    @include hero_section.hero-setup();
 
-.hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--hero-img, none);
-    background-size: cover;
-    background-position: center;
-    animation: heroFadeZoom 1.5s ease-out forwards;
-}
+    &::before {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--hero-img, none);
+    }
 
-.hero-content {
-    width: 100%;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    & h1 {
+        color: white;
+        font-size: 2.2rem;
+        margin-top: 40px;
+        margin-bottom: 0;
+        text-align: center;
+    }
 
-.hero-section h1 {
-    color: white;
-    font-size: 2.2rem;
-    margin-top: 40px;
-    margin-bottom: 0;
-    text-align: center;
-}
+    & .event-date {
+        color: white;
+    }
 
-.hero-section .event-date {
-    color: white;
 }
 
 /* Event details */
@@ -59,21 +37,18 @@
 .info-container {
     margin: 0 6%;
     padding-top: 7px;
-}
 
-@media (min-width: 1024px) {
-    .info-container {
+    @media (min-width: 1024px) {
         margin: 0 15%;
-        padding-top: 7px;
     }
-}
 
-.info-container .location {
-    text-align: center;
-}
+    & .location {
+        text-align: center;
+    }
 
-.info-container .description {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+    & .description {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
 }

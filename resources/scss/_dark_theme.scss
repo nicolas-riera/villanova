@@ -3,6 +3,7 @@
 :root {
     --event-date-color: #555;
     --event-location-color: #666;
+    --border-color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +16,7 @@
 
         --event-date-color: #AAAAAA;
         --event-location-color: #999999;
+        --border-color: #363636;
     }
 
     body {

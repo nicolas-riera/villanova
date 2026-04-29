@@ -21,6 +21,7 @@
 :root {
   --event-date-color: #555;
   --event-location-color: #666;
+  --border-color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +33,7 @@
     --accent-color: #123e69;
     --event-date-color: #AAAAAA;
     --event-location-color: #999999;
+    --border-color: #363636;
   }
   body {
     background-color: var(--neutral-background);
@@ -49,6 +51,22 @@
   }
 }
 /* Hero section */
+.hero-content {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-headline {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* Hero section */
 .hero-section {
   position: relative;
   width: 100%;
@@ -58,7 +76,6 @@
   align-items: center;
   overflow: hidden;
 }
-
 .hero-section::before {
   content: "";
   position: absolute;
@@ -67,20 +84,15 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--hero-img, none);
   background-size: cover;
   background-position: center;
   animation: heroFadeZoom 1.5s ease-out forwards;
+  will-change: transform, opacity;
+  contain: paint;
 }
-
-.hero-content {
-  width: 100%;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.hero-section::before {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--hero-img, none);
 }
-
 .hero-section h1 {
   color: white;
   font-size: 2.2rem;
@@ -88,7 +100,6 @@
   margin-bottom: 0;
   text-align: center;
 }
-
 .hero-section .event-date {
   color: white;
 }
@@ -105,17 +116,14 @@
   margin: 0 6%;
   padding-top: 7px;
 }
-
 @media (min-width: 1024px) {
   .info-container {
     margin: 0 15%;
-    padding-top: 7px;
   }
 }
 .info-container .location {
   text-align: center;
 }
-
 .info-container .description {
   overflow-wrap: break-word;
   word-wrap: break-word;
