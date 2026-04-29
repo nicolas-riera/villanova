@@ -30,8 +30,18 @@ function displayEvents(eventsToDisplay) {
     const past = sorted.filter(e => new Date(e.date) < now);
     const finalEvents = [...upcoming, ...past];
 
+    if (finalEvents.length == 0) {
+        const container = document.getElementById('events-container');
+        if (container) {
+            container.innerHTML = `
+                <div class="error-container">
+                    <p class="error-text">Aucun résultat.</p>
+                </div>`;
+        }
+    } 
+
     finalEvents.forEach(event => {
-        const eventCard = document.createElement('div');
+        const eventCard = document.createElement('article');
         const eventDate = new Date(event.date);
         const isPast = eventDate < now;
 
@@ -41,19 +51,17 @@ function displayEvents(eventsToDisplay) {
         const formattedTime = eventDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
         eventCard.innerHTML = `
-            <article>
-                <div class="event-image-container">
-                    <img loading="lazy" src="${event.image_link || 'placeholder.jpg'}" alt="${event.title}" class="event-image">
+            <div class="event-image-container">
+                <img loading="lazy" src="${event.image_link || 'placeholder.jpg'}" alt="${event.title}" class="event-image">
+            </div>
+            <div class="event-details">
+                <div class="event-info-text">
+                    <h3 class="event-name">${event.title}</h3>
+                    <p class="event-date">${formattedDate} - ${formattedTime}</p>
+                    <p class="event-location" style="font-size: 0.8rem; color: #666;">${event.location || ''}</p>
                 </div>
-                <div class="event-details">
-                    <div class="event-info-text">
-                        <h3 class="event-name">${event.title}</h3>
-                        <p class="event-date">${formattedDate} - ${formattedTime}</p>
-                        <p class="event-location" style="font-size: 0.8rem; color: #666;">${event.location || ''}</p>
-                    </div>
-                    <a href="event.html?id=${event.id}" class="info-button">${isPast ? 'Détails' : "Plus d'infos"}</a>
-                </div>
-            </article>
+                <a href="event.html?id=${event.id}" class="info-button">${isPast ? 'Détails' : "Plus d'infos"}</a>
+            </div>
         `;
         container.appendChild(eventCard);
     });
