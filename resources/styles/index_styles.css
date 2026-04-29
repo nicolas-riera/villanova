@@ -136,6 +136,11 @@
     font-size: 0.9rem;
 }
 
+.event-location {
+    font-size: 0.8rem;
+    color: #666;
+}
+
 .info-button {
     background-color: var(--secondary-color);
     color: white;
@@ -150,4 +155,20 @@
 
 .info-button:hover {
     background-color: var(--accent-color);
+}
+
+/* Auto Dark Theme */
+@media (prefers-color-scheme: dark) {
+    .event-card {
+        background: var(--neutral-background);
+        border: 2px solid #ffffff;
+    }
+
+    .event-date {
+        color: #AAAAAA;
+    }
+
+    .event-location {
+        color: #999999;
+    }
 }

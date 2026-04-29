@@ -17,7 +17,8 @@
     src: url("../font/Inter.ttf") format('truetype');
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
@@ -69,4 +70,20 @@ footer {
 footer a {
     text-decoration: none;
     color: white;
+}
+
+/* Auto Dark Theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #003366;
+        --secondary-color: #002b59;
+        --neutral-background: #121212;
+        --neutral-constrast: #1b1b1b;
+        --accent-color: #123e69;
+    }
+
+    body {
+        background-color: #121212;
+        color: white;
+    }
 }

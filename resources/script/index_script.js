@@ -58,7 +58,7 @@ function displayEvents(eventsToDisplay) {
                 <div class="event-info-text">
                     <h3 class="event-name">${event.title}</h3>
                     <p class="event-date">${formattedDate} - ${formattedTime}</p>
-                    <p class="event-location" style="font-size: 0.8rem; color: #666;">${event.location || ''}</p>
+                    <p class="event-location">${event.location || ''}</p>
                 </div>
                 <a href="event.html?id=${event.id}" class="info-button">${isPast ? 'Détails' : "Plus d'infos"}</a>
             </div>
