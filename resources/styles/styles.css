@@ -83,7 +83,7 @@ footer a {
     }
 
     body {
-        background-color: #121212;
+        background-color: var(--neutral-background);
         color: white;
     }
 }
