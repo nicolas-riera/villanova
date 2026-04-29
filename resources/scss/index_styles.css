@@ -1,0 +1,234 @@
+/* Init */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes heroFadeZoom {
+  from {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Auto Dark Theme */
+:root {
+  --event-date-color: #555;
+  --event-location-color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #003366;
+    --secondary-color: #002b59;
+    --neutral-background: #121212;
+    --neutral-contrast: #1b1b1b;
+    --accent-color: #123e69;
+    --event-date-color: #AAAAAA;
+    --event-location-color: #999999;
+  }
+  body {
+    background-color: var(--neutral-background);
+    color: white;
+  }
+  input {
+    color: white;
+  }
+  .search-icon {
+    filter: invert(100%);
+  }
+  .event-card {
+    background: var(--neutral-background);
+    border: 2px solid #ffffff;
+  }
+}
+/* Hero section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero_background.webp");
+  background-size: cover;
+  background-position: center;
+  animation: heroFadeZoom 1.5s ease-out forwards;
+  will-change: transform, opacity;
+  contain: paint;
+}
+
+.hero-content {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-headline {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--neutral-contrast);
+  border: 2px solid #000;
+  border-radius: 50px;
+  padding: 10px 15px;
+  width: 100%;
+  max-width: 230px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.search-bar-container:focus-within {
+  transform: scale(1.2);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  min-width: 0;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+/* Event grid section */
+.event_title h2 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  padding: 20px;
+  max-width: 100%;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.event-card {
+  background: var(--neutral-contrast);
+  border: 2px solid #000;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.event-card .event-image {
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+}
+.event-card .event-image:hover {
+  transform: scale(1.05);
+}
+.event-card.event-past {
+  opacity: 0.7;
+}
+.event-card.event-past .event-image {
+  filter: grayscale(100%);
+}
+.event-card.event-past .info-button {
+  background-color: #777;
+}
+.event-card.event-past .info-button:hover {
+  background-color: #999999;
+}
+
+@media (min-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 10%;
+    padding: 40px 0;
+  }
+}
+.event-image-container {
+  width: 100%;
+  height: 200px;
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.event-details {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-info-text {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.event-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.event-date {
+  color: var(--event-date-color);
+  font-size: 0.9rem;
+}
+
+.event-location {
+  color: var(--event-location-color);
+  font-size: 0.8rem;
+}
+
+.info-button {
+  background-color: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.info-button:hover {
+  background-color: var(--accent-color);
+}/*# sourceMappingURL=index_styles.css.map */

@@ -1,9 +1,13 @@
 /* Init */
+
+@use 'animations';
+@use 'dark_theme';
+
 :root {
     --primary-color: #003366;
     --secondary-color: #007BFF;
     --neutral-background: #FFFFFF;
-    --neutral-constrast: #F4F7F9;
+    --neutral-contrast: #F4F7F9;
     --accent-color: #3198ff;
 }
 
@@ -56,10 +60,11 @@ header {
 }
 
 h1 {
-   animation: fadeIn 0.5s ease-out forwards; 
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
-main, footer {
+main,
+footer {
     animation: fadeIn 0.2s ease-out forwards;
 }
 
@@ -67,7 +72,6 @@ main {
     flex: 1;
 }
 
-/* Footer  */
 footer {
     background-color: var(--primary-color);
     display: flex;
@@ -79,31 +83,5 @@ footer {
     & a {
         text-decoration: none;
         color: white;
-    }
-}
-
-/* Auto Dark Theme */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #003366;
-        --secondary-color: #002b59;
-        --neutral-background: #121212;
-        --neutral-constrast: #1b1b1b;
-        --accent-color: #123e69;
-    }
-
-    body {
-        background-color: var(--neutral-background);
-        color: white;
-    }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
     }
 }

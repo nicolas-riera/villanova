@@ -1,0 +1,123 @@
+/* Init */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes heroFadeZoom {
+  from {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Auto Dark Theme */
+:root {
+  --event-date-color: #555;
+  --event-location-color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #003366;
+    --secondary-color: #002b59;
+    --neutral-background: #121212;
+    --neutral-contrast: #1b1b1b;
+    --accent-color: #123e69;
+    --event-date-color: #AAAAAA;
+    --event-location-color: #999999;
+  }
+  body {
+    background-color: var(--neutral-background);
+    color: white;
+  }
+  input {
+    color: white;
+  }
+  .search-icon {
+    filter: invert(100%);
+  }
+  .event-card {
+    background: var(--neutral-background);
+    border: 2px solid #ffffff;
+  }
+}
+/* Hero section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--hero-img, none);
+  background-size: cover;
+  background-position: center;
+  animation: heroFadeZoom 1.5s ease-out forwards;
+}
+
+.hero-content {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section h1 {
+  color: white;
+  font-size: 2.2rem;
+  margin-top: 40px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.hero-section .event-date {
+  color: white;
+}
+
+/* Event details */
+.info_title h2 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.info-container {
+  margin: 0 6%;
+  padding-top: 7px;
+}
+
+@media (min-width: 1024px) {
+  .info-container {
+    margin: 0 15%;
+    padding-top: 7px;
+  }
+}
+.info-container .location {
+  text-align: center;
+}
+
+.info-container .description {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}/*# sourceMappingURL=event_styles.css.map */

@@ -1,9 +1,58 @@
 /* Init */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes heroFadeZoom {
+  from {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Auto Dark Theme */
+:root {
+  --event-date-color: #555;
+  --event-location-color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #003366;
+    --secondary-color: #002b59;
+    --neutral-background: #121212;
+    --neutral-contrast: #1b1b1b;
+    --accent-color: #123e69;
+    --event-date-color: #AAAAAA;
+    --event-location-color: #999999;
+  }
+  body {
+    background-color: var(--neutral-background);
+    color: white;
+  }
+  input {
+    color: white;
+  }
+  .search-icon {
+    filter: invert(100%);
+  }
+  .event-card {
+    background: var(--neutral-background);
+    border: 2px solid #ffffff;
+  }
+}
 :root {
   --primary-color: #003366;
   --secondary-color: #007BFF;
   --neutral-background: #FFFFFF;
-  --neutral-constrast: #F4F7F9;
+  --neutral-contrast: #F4F7F9;
   --accent-color: #3198ff;
 }
 
@@ -56,7 +105,8 @@ h1 {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-main, footer {
+main,
+footer {
   animation: fadeIn 0.2s ease-out forwards;
 }
 
@@ -64,7 +114,6 @@ main {
   flex: 1;
 }
 
-/* Footer  */
 footer {
   background-color: var(--primary-color);
   display: flex;
@@ -76,28 +125,4 @@ footer {
 footer a {
   text-decoration: none;
   color: white;
-}
-
-/* Auto Dark Theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-color: #003366;
-    --secondary-color: #002b59;
-    --neutral-background: #121212;
-    --neutral-constrast: #1b1b1b;
-    --accent-color: #123e69;
-  }
-  body {
-    background-color: var(--neutral-background);
-    color: white;
-  }
-}
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }/*# sourceMappingURL=styles.css.map */
