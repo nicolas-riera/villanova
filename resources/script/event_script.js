@@ -9,7 +9,7 @@ fetch('../../database/events.json')
         if (event) {
             const hero = document.querySelector('.hero-section');
             if (hero) {
-                hero.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${event.image_link}')`;
+                hero.style.setProperty('--hero-img', `url('${event.image_link}')`);
             }
 
             const title = document.querySelector('.event-title');

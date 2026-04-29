@@ -1,13 +1,26 @@
 /* Hero section */
 .hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('');
-    background-size: cover;
-    background-position: center;
+    position: relative;
     width: 100%;
     height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--hero-img, none);
+    background-size: cover;
+    background-position: center;
+    animation: heroFadeZoom 1.5s ease-out forwards;
 }
 
 .hero-content {
@@ -58,4 +71,16 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+}
+
+/* Animations */
+@keyframes heroFadeZoom {
+    from {
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
