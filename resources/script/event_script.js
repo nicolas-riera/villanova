@@ -30,10 +30,10 @@ fetch('../../database/events.json')
             const infoContainer = document.querySelector('.info-container');
             if (infoContainer) {
                 infoContainer.innerHTML = `
-                    <div class="event-details">
+                    <section class="event-details">
                         <p class="location"><strong>Lieu :</strong> ${event.location}</p>
                         <p class="description">${event.description}</p>
-                    </div>
+                    </section>
                 `;
             }
         }

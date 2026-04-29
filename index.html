@@ -14,26 +14,30 @@
 </head>
 
 <body>
+
     <header>
         <a href="/"><img src="resources/img/logo.webp" alt="Logo Villanova"></a>
     </header>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-headline">Découvrez le meilleur de VillaNova</h1>
-
-            <div class="search-bar-container">
-                <input type="search" class="search-input" placeholder="Rechercher" name="q">
-                <img src="resources/img/magnifying_glass.webp" alt="Loupe" class="search-icon">
-            </div>
-        </div>
-    </section>
-
     <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-headline">Découvrez le meilleur de VillaNova</h1>
+
+                <form onsubmit="return false;">
+                    <div class="search-bar-container">
+                        <input type="search" class="search-input" placeholder="Rechercher" name="q">
+                        <img src="resources/img/magnifying_glass.webp" aria-hidden="true" alt="" class="search-icon">
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <div class="event_title">
             <h2>Évènements à venir</h2>
         </div>
-        <div id="events-container" class="events-grid"></div>
+        
+        <section id="events-container" class="events-grid"></section>
     </main>
 
     <footer>

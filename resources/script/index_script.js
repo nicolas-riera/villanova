@@ -41,17 +41,19 @@ function displayEvents(eventsToDisplay) {
         const formattedTime = eventDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
         eventCard.innerHTML = `
-            <div class="event-image-container">
-                <img loading="lazy" src="${event.image_link || 'placeholder.jpg'}" alt="${event.title}" class="event-image">
-            </div>
-            <div class="event-details">
-                <div class="event-info-text">
-                    <h3 class="event-name">${event.title}</h3>
-                    <p class="event-date">${formattedDate} - ${formattedTime}</p>
-                    <p class="event-location" style="font-size: 0.8rem; color: #666;">${event.location || ''}</p>
+            <article>
+                <div class="event-image-container">
+                    <img loading="lazy" src="${event.image_link || 'placeholder.jpg'}" alt="${event.title}" class="event-image">
                 </div>
-                <a href="event.html?id=${event.id}" class="info-button">${isPast ? 'Détails' : "Plus d'infos"}</a>
-            </div>
+                <div class="event-details">
+                    <div class="event-info-text">
+                        <h3 class="event-name">${event.title}</h3>
+                        <p class="event-date">${formattedDate} - ${formattedTime}</p>
+                        <p class="event-location" style="font-size: 0.8rem; color: #666;">${event.location || ''}</p>
+                    </div>
+                    <a href="event.html?id=${event.id}" class="info-button">${isPast ? 'Détails' : "Plus d'infos"}</a>
+                </div>
+            </article>
         `;
         container.appendChild(eventCard);
     });
