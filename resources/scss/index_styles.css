@@ -19,6 +19,11 @@
 }
 /* Auto Dark Theme */
 :root {
+  --primary-color: #003366;
+  --secondary-color: #007BFF;
+  --neutral-background: #FFFFFF;
+  --neutral-contrast: #F4F7F9;
+  --accent-color: #3198ff;
   --event-date-color: #555;
   --event-location-color: #666;
   --border-color: #000;
@@ -64,6 +69,80 @@
   font-size: 2.2rem;
   margin-bottom: 50px;
   text-align: center;
+}
+
+/* Init */
+/* Init */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/Montserrat.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../font/Inter.ttf") format("truetype");
+  font-display: swap;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+}
+
+/* Header */
+header,
+h1,
+h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  background-color: var(--primary-color);
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+header img {
+  height: 50px;
+}
+
+h1 {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+main,
+footer {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+main {
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  display: flex;
+  padding: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+footer a {
+  text-decoration: none;
+  color: white;
 }
 
 /* Hero section */

@@ -3,14 +3,6 @@
 @use 'animations';
 @use 'dark_theme';
 
-:root {
-    --primary-color: #003366;
-    --secondary-color: #007BFF;
-    --neutral-background: #FFFFFF;
-    --neutral-contrast: #F4F7F9;
-    --accent-color: #3198ff;
-}
-
 @font-face {
     font-family: "Montserrat";
     src: url("../font/Montserrat.ttf") format('truetype');
