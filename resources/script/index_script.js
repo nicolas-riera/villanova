@@ -1,19 +1,33 @@
 let allEvents = [];
 
 async function loadEvents() {
+    const PUBLIC_KEY = '534084e507ba4b508d43d3a2c176d4a0';
+    const AGENDA_ID = '6875632';
+    
+    let url = `https://corsproxy.io/?https://api.openagenda.com/v2/agendas/${AGENDA_ID}/events`;
+    
     try {
-        const response = await fetch('../../database/events.json');
-        allEvents = await response.json();
+        let allFetchedEvents = [];
+        let hasMore = true;
 
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: { 'key': PUBLIC_KEY }
+        });
+
+        if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
+
+        const data = await response.json();
+        allFetchedEvents = allFetchedEvents.concat(data.events);
+    
+        allEvents = allFetchedEvents;
         displayEvents(allEvents);
+
     } catch (error) {
-        console.error("Erreur :", error);
+        console.error("Erreur de récupération :", error);
         const container = document.getElementById('events-container');
         if (container) {
-            container.innerHTML = `
-                <div class="error-container">
-                    <p class="error-text">Erreur avec le serveur, veillez réessayer ultérieurement.</p>
-                </div>`;
+            container.innerHTML = `<p>Erreur lors du chargement des événements.</p>`;
         }
     }
 }
@@ -25,63 +39,65 @@ function displayEvents(eventsToDisplay) {
     container.innerHTML = "";
     const now = new Date();
 
-    const sorted = [...eventsToDisplay].sort((a, b) => new Date(a.date) - new Date(b.date));
-    const upcoming = sorted.filter(e => new Date(e.date) >= now);
-    const past = sorted.filter(e => new Date(e.date) < now);
+    const sorted = [...eventsToDisplay].sort((a, b) => 
+        new Date(a.firstTiming.begin) - new Date(b.firstTiming.begin)
+    );
+
+    const upcoming = sorted.filter(e => new Date(e.lastTiming.end) >= now);
+    const past = sorted.filter(e => new Date(e.lastTiming.end) < now).reverse(); 
+    
     const finalEvents = [...upcoming, ...past];
 
-    if (finalEvents.length == 0) {
-        const container = document.getElementById('events-container');
-        if (container) {
-            container.innerHTML = `
-                <div class="error-container">
-                    <p class="error-text">Aucun résultat.</p>
-                </div>`;
-        }
+    if (finalEvents.length === 0) {
+        container.innerHTML = `<div class="error-container"><p class="error-text">Aucun résultat.</p></div>`;
+        return;
     } 
 
     finalEvents.forEach(event => {
         const eventCard = document.createElement('article');
-        const eventDate = new Date(event.date);
-        const isPast = eventDate < now;
+        
+        const startDate = new Date(event.firstTiming.begin);
+        const endDate = new Date(event.lastTiming.end);
+        const isPast = endDate < now;
+
+        const imageUrl = event.image 
+            ? `${event.image.base}${event.image.filename}` 
+            : 'placeholder.jpg';
 
         eventCard.className = `event-card ${isPast ? 'event-past' : ''}`;
 
-        const formattedDate = eventDate.toLocaleDateString('fr-FR');
-        const formattedTime = eventDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+        const formattedDate = startDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+        const formattedTime = startDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
         eventCard.innerHTML = `
             <div class="event-image-container">
-                <img loading="lazy" src="${event.image_link || 'placeholder.jpg'}" alt="${event.title}" class="event-image">
+                <img loading="lazy" src="${imageUrl}" alt="${event.title.fr}" class="event-image">
             </div>
             <div class="event-details">
                 <div class="event-info-text">
-                    <h3 class="event-name">${event.title}</h3>
-                    <p class="event-date">${formattedDate} - ${formattedTime}</p>
-                    <p class="event-location">${event.location || ''}</p>
+                    <h3 class="event-name">${event.title.fr}</h3>
+                    <p class="event-date">${formattedDate} à ${formattedTime}</p>
+                    <p class="event-location">${event.location.name} (${event.location.city})</p>
                 </div>
-                <a href="event.html?id=${event.id}" class="info-button">${isPast ? 'Détails' : "Plus d'infos"}</a>
+                <a href="event.html?id=${event.uid}" class="info-button">${isPast ? 'Détails' : "Plus d'infos"}</a>
             </div>
         `;
         container.appendChild(eventCard);
     });
 }
 
-loadEvents();
-
 const searchInput = document.querySelector('.search-input');
 if (searchInput) {
     searchInput.addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
-
         const filtered = allEvents.filter(event => {
-            const titleMatch = event.title.toLowerCase().includes(term);
-            const locationMatch = (event.location || "").toLowerCase().includes(term);
+            const titleMatch = event.title.fr.toLowerCase().includes(term);
+            const locationMatch = event.location.name.toLowerCase().includes(term) || 
+                                 event.location.city.toLowerCase().includes(term);
             return titleMatch || locationMatch;
         });
-
         displayEvents(filtered);
     });
 }
 
-
+loadEvents();
