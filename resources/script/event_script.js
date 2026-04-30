@@ -6,7 +6,9 @@ async function loadEventDetails() {
 
     const PUBLIC_KEY = '534084e507ba4b508d43d3a2c176d4a0';
     const AGENDA_ID = '6875632';
-    const url = `https://corsproxy.io/?https://api.openagenda.com/v2/agendas/${AGENDA_ID}/events/${eventId}`;
+    const timestamp = Date.now();
+    
+    const url = `https://corsproxy.io/?https://api.openagenda.com/v2/agendas/${AGENDA_ID}/events/${eventId}?cache_control=${timestamp}`;
 
     try {
         const response = await fetch(url, {
