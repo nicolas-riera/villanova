@@ -47,13 +47,12 @@ async function loadEventDetails() {
         if (infoContainer) {
             const locName = event.location?.name || "Lieu non précisé";
             const locAddr = event.location?.address || "";
-            const locCity = event.location?.city || "";
             
             const desc = event.longDescription?.fr || event.description?.fr || "Aucune description disponible.";
 
             infoContainer.innerHTML = `
                 <section class="event-details">
-                    <p class="location"><strong>Lieu :</strong> ${locName}, ${locAddr} ${locCity}</p>
+                    <p class="location"><strong>Lieu :</strong> ${locName}, ${locAddr}</p>
                     <div class="description">${desc}</div>
                 </section>
             `;
