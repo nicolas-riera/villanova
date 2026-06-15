@@ -44,7 +44,7 @@ function displayEvents(eventsToDisplay) {
     
     const finalEvents = [...upcoming, ...past];
 
-    // Empty events handling
+    // Empty events handling, notably because of search
     if (finalEvents.length === 0) {
         container.innerHTML = `<div class="error-container"><p class="error-text">Aucun résultat.</p></div>`;
         return;
@@ -68,7 +68,9 @@ function displayEvents(eventsToDisplay) {
 
         eventCard.innerHTML = `
             <div class="event-image-container">
-                <img loading="lazy" src="${imageUrl}" alt="${event.title.fr}" class="event-image">
+                ${imageUrl ? `
+                    <img loading="lazy" src="${imageUrl}" alt="${event.title.fr}" class="event-image">
+                ` : ''}
             </div>
             <div class="event-details">
                 <div class="event-info-text">
