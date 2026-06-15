@@ -11,7 +11,10 @@ async function loadEvents() {
         displayEvents(allEvents);
 
     } catch (error) {
-        console.error("Erreur de récupération :", error);
+        // Debugging error
+        console.error(error);
+
+        // Front error message
         const container = document.getElementById('events-container');
         if (container) {
             container.innerHTML = `<p>Erreur lors du chargement des événements.</p>`;
