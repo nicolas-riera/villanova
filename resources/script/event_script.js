@@ -27,6 +27,14 @@ async function loadEventDetails() {
             dateElem.textContent = startDate.toLocaleDateString('fr-FR', dateOptions);
         }
 
+        // Google Calender button setup
+        const gStart = formatGoogleDate(event.firstTiming.begin);
+        const gEnd = formatGoogleDate(event.lastTiming.end);
+        const gTitle = encodeURIComponent(event.title.fr);
+        const gLocation = encodeURIComponent(`${event.location.name}, ${event.location.city}`);
+        const gDesc = encodeURIComponent(event.description?.fr || "");
+        const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gTitle}&dates=${gStart}/${gEnd}&details=${gDesc}&location=${gLocation}`;
+
         const infoContainer = document.querySelector('.info-container');
         if (infoContainer) {
             const locName = event.location?.name || "Lieu non précisé";
@@ -37,6 +45,7 @@ async function loadEventDetails() {
                 <section class="event-details">
                     <p class="location"><strong>Lieu :</strong> ${locName}, ${locAddr}</p>
                     <div class="description">${desc}</div>
+                    <a href="${googleCalendarUrl}" target="_blank" class="calendar-button">Ajouter à Google Agenda</a>
                 </section>
             `;
         }
@@ -56,6 +65,12 @@ async function loadEventDetails() {
             infoContainer.innerHTML = `<p>Erreur lors du chargement des détails.</p>`;
         }
     }
+}
+
+// Google Calender needs a very specific date format
+function formatGoogleDate(dateStr) {
+    if (!dateStr) return "";
+    return new Date(dateStr).toISOString().replace(/-|:|\.\d\d\d/g, "");
 }
 
 loadEventDetails();
