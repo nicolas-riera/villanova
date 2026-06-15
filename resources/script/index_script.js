@@ -32,8 +32,15 @@ function displayEvents(eventsToDisplay) {
         new Date(a.firstTiming.begin) - new Date(b.firstTiming.begin)
     );
 
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
     const upcoming = sorted.filter(e => new Date(e.lastTiming.end) >= now);
-    const past = sorted.filter(e => new Date(e.lastTiming.end) < now).reverse(); 
+    const past = sorted.filter(e => {
+        const endDate = new Date(e.lastTiming.end);
+        // Ignore events that are 6 months old or older
+        return endDate < now && endDate >= sixMonthsAgo;
+    }).reverse();
     
     const finalEvents = [...upcoming, ...past];
 
@@ -52,7 +59,7 @@ function displayEvents(eventsToDisplay) {
 
         const imageUrl = event.image 
             ? `${event.image.base}${event.image.filename}` 
-            : 'placeholder.jpg';
+            : '';
 
         eventCard.className = `event-card ${isPast ? 'event-past' : ''}`;
 
