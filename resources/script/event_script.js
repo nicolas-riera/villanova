@@ -1,20 +1,8 @@
-const urlParams = new URLSearchParams(window.location.search);
-const eventId = urlParams.get('id');
-
 async function loadEventDetails() {
     if (!eventId) return;
 
-    const PUBLIC_KEY = '534084e507ba4b508d43d3a2c176d4a0';
-    const AGENDA_ID = '6875632';
-    
-    const url = `https://api.openagenda.com/v2/agendas/${AGENDA_ID}/events/${eventId}?key=${PUBLIC_KEY}`;
-
     try {
-        const response = await fetch(url);
-
-        if (!response.ok) throw new Error("Événement introuvable");
-
-        const data = await response.json();
+        const data = await fetchAPI(`/${eventId}`);
         const event = data.event; 
 
         const hero = document.querySelector('.hero-section');
@@ -43,7 +31,6 @@ async function loadEventDetails() {
         if (infoContainer) {
             const locName = event.location?.name || "Lieu non précisé";
             const locAddr = event.location?.address || "";
-            
             const desc = event.longDescription?.fr || event.description?.fr || "Aucune description disponible.";
 
             infoContainer.innerHTML = `

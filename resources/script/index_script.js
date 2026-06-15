@@ -1,23 +1,13 @@
 let allEvents = [];
 
 async function loadEvents() {
-    const PUBLIC_KEY = '534084e507ba4b508d43d3a2c176d4a0';
-    const AGENDA_ID = '6875632'
-        
-    let url = `https://api.openagenda.com/v2/agendas/${AGENDA_ID}/events?key=${PUBLIC_KEY}`;
-    
     try {
         let allFetchedEvents = [];
-        let hasMore = true;
-
-        const response = await fetch(url);
-
-        if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-
-        const data = await response.json();
-        allFetchedEvents = allFetchedEvents.concat(data.events);
-    
+        const data = await fetchAPI();
+        
+        allFetchedEvents = allFetchedEvents.concat(data.events || []);
         allEvents = allFetchedEvents;
+        
         displayEvents(allEvents);
 
     } catch (error) {
@@ -34,17 +24,27 @@ function displayEvents(eventsToDisplay) {
     if (!container) return;
 
     container.innerHTML = "";
+
+    // Event sorting and separation (upcoming and past)
     const now = new Date();
 
     const sorted = [...eventsToDisplay].sort((a, b) => 
         new Date(a.firstTiming.begin) - new Date(b.firstTiming.begin)
     );
 
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
     const upcoming = sorted.filter(e => new Date(e.lastTiming.end) >= now);
-    const past = sorted.filter(e => new Date(e.lastTiming.end) < now).reverse(); 
+    const past = sorted.filter(e => {
+        const endDate = new Date(e.lastTiming.end);
+        // Ignore events that are 6 months old or older
+        return endDate < now && endDate >= sixMonthsAgo;
+    }).reverse();
     
     const finalEvents = [...upcoming, ...past];
 
+    // Empty events handling, notably because of search
     if (finalEvents.length === 0) {
         container.innerHTML = `<div class="error-container"><p class="error-text">Aucun résultat.</p></div>`;
         return;
@@ -59,7 +59,7 @@ function displayEvents(eventsToDisplay) {
 
         const imageUrl = event.image 
             ? `${event.image.base}${event.image.filename}` 
-            : 'placeholder.jpg';
+            : '';
 
         eventCard.className = `event-card ${isPast ? 'event-past' : ''}`;
 
@@ -68,7 +68,9 @@ function displayEvents(eventsToDisplay) {
 
         eventCard.innerHTML = `
             <div class="event-image-container">
-                <img loading="lazy" src="${imageUrl}" alt="${event.title.fr}" class="event-image">
+                ${imageUrl ? `
+                    <img loading="lazy" src="${imageUrl}" alt="${event.title.fr}" class="event-image">
+                ` : ''}
             </div>
             <div class="event-details">
                 <div class="event-info-text">
@@ -83,10 +85,12 @@ function displayEvents(eventsToDisplay) {
     });
 }
 
+// Search bar handling
 const searchInput = document.querySelector('.search-input');
 if (searchInput) {
     searchInput.addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
+        // Either match with event name or with location
         const filtered = allEvents.filter(event => {
             const titleMatch = event.title.fr.toLowerCase().includes(term);
             const locationMatch = event.location.name.toLowerCase().includes(term) || 
