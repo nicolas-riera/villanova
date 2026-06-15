@@ -3,18 +3,14 @@ let allEvents = [];
 async function loadEvents() {
     const PUBLIC_KEY = '534084e507ba4b508d43d3a2c176d4a0';
     const AGENDA_ID = '6875632'
-    const timestamp = Date.now();    
-    
-    let url = `https://corsproxy.io/?https://api.openagenda.com/v2/agendas/${AGENDA_ID}/events?cache_control=${timestamp}`;
+        
+    let url = `https://api.openagenda.com/v2/agendas/${AGENDA_ID}/events?key=${PUBLIC_KEY}`;
     
     try {
         let allFetchedEvents = [];
         let hasMore = true;
 
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: { 'key': PUBLIC_KEY }
-        });
+        const response = await fetch(url);
 
         if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
 
