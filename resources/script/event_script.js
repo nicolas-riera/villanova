@@ -42,7 +42,15 @@ async function loadEventDetails() {
         }
 
     } catch (error) {
+        // Debugging error in console
         console.error(error);
+        
+        // Front error message
+        const titleElem = document.querySelector('.event-title');
+        if (titleElem) {
+            titleElem.textContent = "Quelque chose n'a pas fonctionné...";
+        }
+
         const infoContainer = document.querySelector('.info-container');
         if (infoContainer) {
             infoContainer.innerHTML = `<p>Erreur lors du chargement des détails.</p>`;
