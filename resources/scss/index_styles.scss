@@ -1,7 +1,7 @@
 /* Init */
 
 @use 'animations';
-@use 'dark_theme';
+@use 'color_palette';
 @use 'hero_section';
 @use 'common';
 
@@ -47,7 +47,7 @@
 }
 
 /* Event grid section */
-.event_title h2 {
+.event-title h2 {
     text-align: center;
     margin-top: 25px;
     margin-bottom: 5px;
@@ -158,6 +158,10 @@
 
         &:hover {
             background-color: var(--accent-color);
+        }
+
+        &:active {
+            transform: scale(0.98);
         }
     }
 }

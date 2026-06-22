@@ -18,7 +18,6 @@
     transform: scale(1);
   }
 }
-/* Auto Dark Theme */
 :root {
   --primary-color: #003366;
   --secondary-color: #007BFF;
@@ -28,6 +27,8 @@
   --event-date-color: #555;
   --event-location-color: #666;
   --border-color: #000;
+  --footer-button-color: #007BFF;
+  --footer-button-hover-color: #3198ff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,6 +41,8 @@
     --event-date-color: #AAAAAA;
     --event-location-color: #999999;
     --border-color: #363636;
+    --footer-button-color: #0d6bd8;
+    --footer-button-hover-color: #2181e2;
   }
   body {
     background-color: var(--neutral-background);
@@ -54,6 +57,9 @@
   .event-card {
     background: var(--neutral-background);
     border: 2px solid #ffffff;
+  }
+  footer .contact-section form .form-group input, footer .contact-section form .form-group textarea {
+    color: #fff !important;
   }
 }
 @font-face {
@@ -118,7 +124,7 @@ main {
 footer {
   background-color: var(--primary-color);
   display: flex;
-  padding: 1rem 0;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
@@ -126,6 +132,82 @@ footer {
 footer a {
   text-decoration: none;
   color: white;
+}
+footer .contact-section {
+  display: block;
+  width: 80%;
+  max-width: 450px;
+}
+footer .contact-section h3 {
+  text-align: center;
+  font-size: 25px;
+  text-decoration: underline;
+}
+footer .contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+footer .contact-section form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+footer .contact-section form .form-group input, footer .contact-section form .form-group textarea {
+  padding: 14px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--neutral-contrast);
+  color: #000;
+  font-family: inherit;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+footer .contact-section form .form-group input::-moz-placeholder, footer .contact-section form .form-group textarea::-moz-placeholder {
+  color: #8c8581;
+}
+footer .contact-section form .form-group input::placeholder, footer .contact-section form .form-group textarea::placeholder {
+  color: #8c8581;
+}
+footer .contact-section form .form-group input:focus, footer .contact-section form .form-group textarea:focus {
+  background-color: var(--neutral-background);
+}
+footer .contact-section form .form-group textarea {
+  resize: none;
+  min-height: 200px;
+}
+footer .contact-section form button {
+  width: 100%;
+}
+footer .contact-section.hidden {
+  display: none !important;
+}
+footer button {
+  padding: 14px;
+  background-color: var(--footer-button-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+footer button:hover {
+  background-color: var(--footer-button-hover-color);
+}
+footer button:active {
+  transform: scale(0.98);
+}
+footer #toggleFooterBtn {
+  margin-top: 25px;
+}
+footer p {
+  border-top: var(--neutral-background) 2px solid;
+  border-color: #fff;
+  margin-top: 30px;
+  padding-top: 30px;
+  margin-bottom: 30px;
 }
 
 /* Hero section */
@@ -183,7 +265,7 @@ footer a {
 }
 
 /* Event details */
-.info_title h2 {
+.info-title h2 {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 5px;
@@ -221,5 +303,8 @@ footer a {
   text-align: center;
 }
 .info-container .calendar-button:hover {
-  opacity: 0.9;
+  background-color: var(--accent-color);
+}
+.info-container .calendar-button:active {
+  transform: scale(0.98);
 }/*# sourceMappingURL=event_styles.css.map */

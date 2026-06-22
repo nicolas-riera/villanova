@@ -40,12 +40,16 @@ async function loadEventDetails() {
             const locName = event.location?.name || "Lieu non précisé";
             const locAddr = event.location?.address || "";
             const desc = event.longDescription?.fr || event.description?.fr || "Aucune description disponible.";
+            
+            const calendarButtonHtml = event.lastTiming && new Date(event.lastTiming.end) < new Date() 
+                ? "" 
+                : `<a href="${googleCalendarUrl}" target="_blank" class="calendar-button">Ajouter à Google Agenda</a>`;
 
             infoContainer.innerHTML = `
                 <section class="event-details">
                     <p class="location"><strong>Lieu :</strong> ${locName}, ${locAddr}</p>
                     <div class="description">${desc}</div>
-                    <a href="${googleCalendarUrl}" target="_blank" class="calendar-button">Ajouter à Google Agenda</a>
+                    ${calendarButtonHtml}
                 </section>
             `;
         }

@@ -16,5 +16,18 @@ async function fetchAPI(endpoint = '') {
     return response.json();
 }
 
+// Contact Form
+const toggleBtn = document.getElementById('toggleFooterBtn');
+const contactSection = document.querySelector('.contact-section');
+
+toggleBtn.addEventListener('click', () => {
+    contactSection.classList.toggle('hidden');
+    
+    if (contactSection.classList.contains('hidden')) {
+        toggleBtn.textContent = 'Nous Contacter';
+    } else {
+        toggleBtn.textContent = 'Masquer';
+    }
+});
 // Copyright date
 document.getElementById('year').textContent = new Date().getFullYear();

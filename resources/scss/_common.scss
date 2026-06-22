@@ -1,7 +1,7 @@
 /* Init */
 
 @use 'animations';
-@use 'dark_theme';
+@use 'color_palette';
 
 // Fonts
 @font-face {
@@ -69,7 +69,7 @@ main {
 footer {
     background-color: var(--primary-color);
     display: flex;
-    padding: 1rem 0;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
@@ -77,5 +77,94 @@ footer {
     & a {
         text-decoration: none;
         color: white;
+    }
+
+    & .contact-section {
+
+        display: block;
+        width: 80%;
+        max-width: 450px;
+
+        & h3 {
+            text-align: center;
+            font-size: 25px;
+            text-decoration: underline;
+        }
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            & .form-group {
+                display: flex;
+                flex-direction: column;
+
+                & input, textarea {
+                    padding: 14px 16px;
+                    border: none;
+                    border-radius: 6px;
+                    background-color: var(--neutral-contrast);
+                    color: #000;
+                    font-family: inherit;
+                    font-size: 0.95rem;
+                    width: 100%;
+                    box-sizing: border-box;
+
+                    &::placeholder {
+                        color: #8c8581;
+                    }
+
+                    &:focus {
+                        background-color: var(--neutral-background);
+                    }
+                }
+
+                & textarea {
+                    resize: none;
+                    min-height: 200px;
+                }
+            }
+
+            & button {
+                width: 100%;
+            }
+        }
+    }
+
+    & .contact-section.hidden {
+        display: none !important;
+    }
+
+    & button {
+        padding: 14px;
+        background-color: var(--footer-button-color);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: background-color 0.2s, transform 0.1s;
+
+        &:hover {
+            background-color: var(--footer-button-hover-color);
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    & #toggleFooterBtn {
+        margin-top: 25px;
+    }
+
+    & p {
+        border-top: var(--neutral-background) 2px solid;
+        border-color: #fff;
+        margin-top: 30px;
+        padding-top: 30px;
+        margin-bottom: 30px;
     }
 }
