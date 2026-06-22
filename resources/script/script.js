@@ -29,5 +29,26 @@ toggleBtn.addEventListener('click', () => {
         toggleBtn.textContent = 'Masquer';
     }
 });
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = {
+        nom: document.getElementById('nom').value,
+        prenom: document.getElementById('prenom').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    console.log(formData);
+
+    alert('Le message a été envoyé. Merci.');
+    
+    this.reset();
+    
+    contactSection.classList.toggle('hidden');
+    toggleBtn.textContent = 'Nous Contacter';
+});
+
 // Copyright date
 document.getElementById('year').textContent = new Date().getFullYear();
