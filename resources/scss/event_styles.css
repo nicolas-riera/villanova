@@ -137,6 +137,10 @@ footer .contact-section {
   display: block;
   width: 80%;
   max-width: 450px;
+  max-height: 1000px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 footer .contact-section h3 {
   text-align: center;
@@ -180,7 +184,9 @@ footer .contact-section form button {
   width: 100%;
 }
 footer .contact-section.hidden {
-  display: none !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none;
 }
 footer button {
   padding: 14px;
