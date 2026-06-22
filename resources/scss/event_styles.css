@@ -137,12 +137,18 @@ footer .contact-section {
   display: block;
   width: 80%;
   max-width: 450px;
+  margin: 30px;
+  margin-bottom: 0px;
+  padding: 20px;
+  border: #fff 2px solid;
+  border-radius: 30px;
   max-height: 1000px;
   opacity: 1;
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, margin 0.5s ease-in-out, padding 0.5s ease-in-out, border-width 0.5s ease-in-out;
 }
 footer .contact-section h3 {
+  margin-top: 0px;
   text-align: center;
   font-size: 25px;
   text-decoration: underline;
@@ -186,6 +192,8 @@ footer .contact-section form button {
 footer .contact-section.hidden {
   max-height: 0 !important;
   opacity: 0 !important;
+  margin: 0px;
+  padding: 0px;
   pointer-events: none;
 }
 footer button {
@@ -281,10 +289,12 @@ footer p {
 .info-container {
   margin: 0 6%;
   padding-top: 7px;
+  padding-bottom: 40px;
 }
 @media (min-width: 1024px) {
   .info-container {
     margin: 0 15%;
+    padding-bottom: 60px;
   }
 }
 .info-container .location {
@@ -297,7 +307,7 @@ footer p {
 }
 .info-container .calendar-button {
   display: table;
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
   background-color: var(--secondary-color);
   color: white;
   text-decoration: none;

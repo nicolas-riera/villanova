@@ -38,9 +38,11 @@
 .info-container {
     margin: 0 6%;
     padding-top: 7px;
+    padding-bottom: 40px; 
 
     @media (min-width: 1024px) {
         margin: 0 15%;
+        padding-bottom: 60px; 
     }
 
     & .location {
@@ -55,7 +57,7 @@
 
     & .calendar-button {
         display: table; 
-        margin: 20px auto; 
+        margin: 20px auto 0 auto; 
         background-color: var(--secondary-color);
         color: white;
         text-decoration: none;

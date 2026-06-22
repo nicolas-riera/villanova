@@ -83,14 +83,25 @@ footer {
         display: block;
         width: 80%;
         max-width: 450px;
+        margin: 30px;
+        margin-bottom: 0px;
+        padding: 20px; 
+        border: #fff 2px solid;
+        border-radius: 30px;
 
         // Sliding animation
         max-height: 1000px; 
         opacity: 1;
         overflow: hidden;
-        transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+        transition: 
+            max-height 0.5s ease-in-out, 
+            opacity 0.3s ease-in-out,
+            margin 0.5s ease-in-out,
+            padding 0.5s ease-in-out,
+            border-width 0.5s ease-in-out;
 
         & h3 {
+            margin-top: 0px;
             text-align: center;
             font-size: 25px;
             text-decoration: underline;
@@ -140,6 +151,8 @@ footer {
     & .contact-section.hidden {
         max-height: 0 !important;
         opacity: 0 !important;
+        margin: 0px;
+        padding: 0px;
         pointer-events: none;
     }
 
