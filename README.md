@@ -2,7 +2,7 @@
 
 *(fictif)* 
 
-Une Plateforme web responsive d'actualités et d'agrégation d'événements pour la commune de VillaNova.
+Une Plateforme web d'actualités et d'agrégation d'événements pour la commune de VillaNova.
 
 <img width="2876" height="1528" alt="image" src="https://github.com/user-attachments/assets/4b79b3a4-71dd-4045-b60e-28e5e872ca07" />
   
