@@ -16,7 +16,41 @@ async function fetchAPI(endpoint = '') {
     return response.json();
 }
 
+
+// Header and Footer injection
+const header = document.querySelector('header')
+const footer = document.querySelector('footer')
+
+header.innerHTML = `
+        <a href=""><img src="resources/img/logo.webp" alt="Logo Villanova"></a>
+    `;
+
+footer.innerHTML = `
+        <button id="toggleFooterBtn">Nous Contacter</button>
+        <section class="contact-section hidden">
+            <h3>Contact</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="nom" name="nom" placeholder="Nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+        
+        <p><span id="year"></span> © <a href="./">VillaNova</a> - Tous droits réservés</p>
+    `;
+
 // Contact Form
+// Show/hide button
 const toggleBtn = document.getElementById('toggleFooterBtn');
 const contactSection = document.querySelector('.contact-section');
 
@@ -30,6 +64,7 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 
+// Form submit
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
