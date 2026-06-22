@@ -17,14 +17,8 @@ async function fetchAPI(endpoint = '') {
 }
 
 
-// Header and Footer injection
-const header = document.querySelector('header')
+// Footer injection
 const footer = document.querySelector('footer')
-
-header.innerHTML = `
-        <a href=""><img src="resources/img/logo.webp" alt="Logo Villanova"></a>
-    `;
-
 footer.innerHTML = `
         <button id="toggleFooterBtn">Nous Contacter</button>
         <section class="contact-section hidden">
